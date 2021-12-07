@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.automatedvotingmachine.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.automatedvotingmachine.LogInPage">
    <children>
       <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -43,8 +43,8 @@
             <Button fx:id="loginButton" layoutX="276.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#logInMouseClicked" text="Log In" />
             <Text layoutX="193.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
             <Text layoutX="195.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-            <Button fx:id="registerNewVoterButton" layoutX="235.0" layoutY="303.0" mnemonicParsing="false" onAction="#registerANewButtonClicked" text="Register a new Voter" />
-            <Button fx:id="logInAsAdinButton" layoutX="247.0" layoutY="344.0" mnemonicParsing="false" onAction="#LogInAsAdminButtonClicked" text="Log In As Admin" />
+            <Button fx:id="registerNewVoterButton" layoutX="235.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#registerANewButtonClicked" text="Register a new Voter" />
+            <Button fx:id="AdminButton" layoutX="273.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#AdminButtonClicked" text="Admin" />
             <PasswordField fx:id="password" layoutX="305.0" layoutY="232.0" promptText="Password" />
          </children>
       </Pane>

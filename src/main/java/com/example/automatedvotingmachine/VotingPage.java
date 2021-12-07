@@ -13,8 +13,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 
 public class VotingPage implements Initializable {
+
+
+    @FXML
+    private Button backButton;
 
     @FXML
     private ResourceBundle resources;
@@ -45,10 +50,11 @@ public class VotingPage implements Initializable {
         evm = new EVM();
         ArrayList<String> list = new ArrayList<String>();
 
-        evm.retrieveCandidiates(evm.getCandidateArrayList());
-        ArrayList<String> candidatesList = new ArrayList<String>();
-        for(int i = 0; i < evm.getCandidateArrayList().size(); i++){
-            candidatesList.add(evm.getCandidateArrayList().get(i).getId()+"       "+ evm.getCandidateArrayList().get(i).getFname()+" "+evm.getCandidateArrayList().get(i).getLname()+ "       "+ evm.getCandidateArrayList().get(i).getParty_name());
+        Data data = Data.getInstance();
+        evm.retrieveCandidiates();
+        ArrayList<String> candidatesList = new ArrayList<>();
+        for(int i = 0; i < data.getCandidateArrayList().size(); i++){
+            candidatesList.add(data.getCandidateArrayList().get(i).getId()+"       "+ data.getCandidateArrayList().get(i).getFname()+" "+data.getCandidateArrayList().get(i).getLname()+ "       "+ data.getCandidateArrayList().get(i).getParty_name());
         }
         listView.getItems().addAll(candidatesList);
 
@@ -66,12 +72,25 @@ public class VotingPage implements Initializable {
     }
 
     public void onCastVote(ActionEvent actionEvent) {
-        evm.getCandidateArrayList().get(currentCandidate).setVotes(evm.getCandidateArrayList().get(currentCandidate).getVotes()+1);
-        evm.updateVotes(evm.getCandidateArrayList().get(currentCandidate));
+        EVM evm = new EVM();
+        Data data = Data.getInstance();
+        data.getCandidateArrayList().get(currentCandidate).setVotes(data.getCandidateArrayList().get(currentCandidate).getVotes()+1);
+        evm.updateVotes(data.getCandidateArrayList().get(currentCandidate));
+    }
 
 
+    @FXML
+    void backButtonPressed(MouseEvent event) {
+        EVMApplication EVMApplication = new EVMApplication();
+        try {
+            EVMApplication.changeScene("hello-view.fxml");
 
 
+        }
+        catch(Exception e){
+            System.out.println("Login page not loaded");
 
+
+        }
     }
 }
